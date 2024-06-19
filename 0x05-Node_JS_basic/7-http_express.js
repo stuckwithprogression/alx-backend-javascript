@@ -3,12 +3,8 @@ const fs = require('fs');
 
 const app = express();
 const PORT = 1245;
-const HOST = 'localhost';
-const URL = `http://${HOST}:${PORT}`;
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
-
-// Counts the students in a CSV data file.
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
     reject(new Error('Cannot load the database'));
@@ -89,7 +85,7 @@ app.get('/students', (_, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on  ${URL}`);
+  console.log(`Server listening on PORT ${PORT}`);
 });
 
 module.exports = app;
